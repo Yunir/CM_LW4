@@ -36,4 +36,8 @@ public class RungeKuttaMethod {
     private double getResultOfFunction (double xi, double yi) {
         return Math.pow(xi, 2)-2*yi;
     }
+
+    public ArrayList<Pair<Double, Double>> getValues() {
+        return values;
+    }
 }
