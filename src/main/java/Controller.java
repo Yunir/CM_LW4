@@ -1,12 +1,8 @@
-package controller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
-import model.MilneMethod;
-import model.RungeKuttaMethod;
 
 public class Controller {
     @FXML
@@ -40,9 +36,9 @@ public class Controller {
             RungeKuttaMethod rkm = new RungeKuttaMethod(x_start, y_start, step, x_end);
             MilneMethod mm = new MilneMethod(rkm.getValues(), step);
             i_graph.getData().clear();
-            XYChart.Series<String, Double> series = new XYChart.Series<String, Double>();
+            XYChart.Series<String, Double> series = new XYChart.Series<>();
             for (int i = 0; i < mm.getValues().size(); i++) {
-                series.getData().add(new XYChart.Data<String, Double>(mm.getValues().get(i).getKey().toString(), mm.getValues().get(i).getValue()));
+                series.getData().add(new XYChart.Data<>(mm.getValues().get(i).getKey().toString(), mm.getValues().get(i).getValue()));
             }
             i_graph.getData().add(series);
             i_resultsInfo.setText("We have answer!\n");
@@ -52,16 +48,11 @@ public class Controller {
     }
 
     private boolean checkFields() {
-        if(x0.getText().matches("-?((\\d*)|(\\d+\\.\\d*))")  && !x0.getText().equals("") &&
-                y0.getText().matches("-?((\\d*)|(\\d+\\.\\d*))")  && !y0.getText().equals("") &&
-                Xn.getText().matches("-?((\\d*)|(\\d+\\.\\d*))")  && !Xn.getText().equals("") &&
+        return x0.getText().matches("-?((\\d*)|(\\d+\\.\\d*))") && !x0.getText().equals("") &&
+                y0.getText().matches("-?((\\d*)|(\\d+\\.\\d*))") && !y0.getText().equals("") &&
+                Xn.getText().matches("-?((\\d*)|(\\d+\\.\\d*))") && !Xn.getText().equals("") &&
                 Double.parseDouble(x0.getText()) < Double.parseDouble(Xn.getText()) &&
-                i_comboBox.getValue() != null) {
-            return true;
-        } else {
-            return false;
-        }
-
+                i_comboBox.getValue() != null;
     }
 
 }

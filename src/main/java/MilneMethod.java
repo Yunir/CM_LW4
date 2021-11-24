@@ -1,12 +1,10 @@
-package model;
-
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
 public class MilneMethod {
     double step;
-    private ArrayList<Pair<Double, Double>> values;
+    private final ArrayList<Pair<Double, Double>> values;
     public MilneMethod(ArrayList<Pair<Double, Double>> answers, double step) {
         values = answers;
         this.step = step;

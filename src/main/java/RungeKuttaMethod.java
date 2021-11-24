@@ -1,14 +1,12 @@
-package model;
-
 import javafx.util.Pair;
 import java.util.ArrayList;
 
 public class RungeKuttaMethod {
-    private double step;
-    private ArrayList<Pair<Double, Double>> values;
+    private final double step;
+    private final ArrayList<Pair<Double, Double>> values;
     public RungeKuttaMethod(double startX, double startY, double step, double lastX) {
         this.step = step;
-        values = new ArrayList<Pair<Double, Double>>();
+        values = new ArrayList<>();
         values.add(new Pair<>(startX, startY));
         double nextY = startY;
         for (double i = startX; i < lastX; i += step) {
