@@ -2,7 +2,14 @@
 Ordinary differential equation - Cauchy problem.
 Milne's method. 
 
-Задается ОбДифУр , пользователь задает начальные условия (x0, y0), конец отрезка и точность.
-Программа сама вычисляет шаг в зависимости от точности для нахождения массива значений x и y.
-* Используя интерполирование 3-й работы строим график.
-* У кого 3-я работа была аппроксимация, строит график по полученным данным, задав очень маленькую точность.
+**Input:** 
+- start values (x0 and y0)
+- the end value (Xn)
+- precision
+
+**Output:**
+- step
+- graphical representation
+
+## Preview
+![](images/interface.png)
